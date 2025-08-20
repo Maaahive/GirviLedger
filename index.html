@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vintage Interest Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="main-container">
+    <h1>Vintage Interest Calculator</h1>
+
+    <div class="navigation-buttons">
+      <button onclick="showSection('list')">Home (List)</button>
+      <button onclick="showSection('add')">Add New Entry</button>
+      <button onclick="showSection('search')">Search / Modify</button>
+      <button onclick="showSection('print')">Print / Export</button>
+    </div>
+
+    <!-- List Section -->
+    <div id="list-section" class="section active">
+      <h2>All Entries (<span id="entry-count">0</span>)</h2>
+      <p id="list-total-finished-amount" class="total-display"></p>
+      <div class="table-container">
+        <table id="entries-list-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Father's Name</th>
+              <th>Amount</th>
+              <th>Amount Given</th> <!-- NEW -->
+              <th>Remaining</th>
+              <th>Byaaj %</th>
+              <th>Final Byaaj</th>
+              <th>Final Amount</th>
+              <th>Den Date</th>
+              <th>Len Date</th>
+              <th>Status</th>
+              <th>Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Entries will be loaded here by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Add Entry Section -->
+    <div id="add-section" class="section">
+      <h2>Add New Entry</h2>
+      <form id="add-entry-form">
+        <label for="add-name">Name:</label>
+        <input type="text" id="add-name" required />
+
+        <label for="add-father-name">Father's Name:</label>
+        <input type="text" id="add-father-name" required />
+
+        <label for="add-amount">Principal Amount (₹):</label>
+        <input type="number" id="add-amount" step="0.01" required />
+
+        <label for="add-amount-given">Amount Given (if any, ₹):</label>
+        <input type="number" id="add-amount-given" step="0.01" value="0" />
+
+        <label for="add-byaaj">Byaaj (% per month):</label>
+        <input type="number" id="add-byaaj" step="0.01" placeholder="Default: 2" />
+
+        <label for="add-den-date">Den Date:</label>
+        <input type="date" id="add-den-date" required />
+
+        <label for="add-len-date">Len Date (optional):</label>
+        <input type="date" id="add-len-date" />
+
+        <label for="add-code">Code:</label>
+        <select id="add-code">
+          <option value="">-- Select Code --</option>
+          <option value="8 to 10 to 11">8 to 10 to 11</option>
+          <option value="Du Lo">Du Lo</option>
+          <option value="LL">LL</option>
+          <option value="Du L">Du L</option>
+          <option value="Du G">Du G</option>
+          <option value="Du R">Du R</option>
+          <option value="Chha dibbi">Chha dibbi</option>
+          <option value="Pila thela">Pila thela</option>
+          <option value="Chandi saman">Chandi saman</option>
+          <option value="HL">HL</option>
+        </select>
+
+        <button type="submit" id="add-update-button">Add Entry</button>
+      </form>
+      <p id="add-message" class="message"></p>
+    </div>
+
+    <!-- Search / Modify Section -->
+    <div id="search-section" class="section">
+      <h2>Search & Modify Entries</h2>
+      <input type="text" id="search-input" placeholder="Search by Name, Father's Name or Code..."
+        onkeyup="filterEntries()" />
+      <div class="table-container">
+        <table id="search-results-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Father's Name</th>
+              <th>Amount</th>
+              <th>Amount Given</th> <!-- NEW -->
+              <th>Remaining</th>
+              <th>Byaaj %</th>
+              <th>Final Byaaj</th>
+              <th>Final Amount</th>
+              <th>Den Date</th>
+              <th>Len Date</th>
+              <th>Status</th>
+              <th>Code</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Search results will be loaded here by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+      <p id="search-message" class="message"></p>
+    </div>
+
+    <!-- Print / Export Section -->
+    <div id="print-section" class="section">
+      <h2>Print & Export All Entries</h2>
+      <div class="table-container">
+        <table id="print-all-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Father's Name</th>
+              <th>Amount</th>
+              <th>Amount Given</th> <!-- NEW -->
+              <th>Remaining</th>
+              <th>Byaaj %</th>
+              <th>Final Byaaj</th>
+              <th>Final Amount</th>
+              <th>Den Date</th>
+              <th>Len Date</th>
+              <th>Status</th>
+              <th>Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- All entries will be loaded here by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+      <p id="total-finished-amount"></p>
+      <button onclick="downloadExcel()">Download Excel</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

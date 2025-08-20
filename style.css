@@ -1,0 +1,369 @@
+/* --- Font Imports (Keep existing) --- */
+@font-face {
+  font-family: 'Adler';
+  src: url('./fonts/Adler.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Albertsthal Typewriter';
+  src: url('./fonts/Albertsthal Typewriter.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Punktype';
+  src: url('./fonts/Punktype.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Special Elite';
+  src: url('./fonts/SpecialElite.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Typedeer Mono Demo';
+  src: url('./fonts/Typedeer Mono Demo.ttf') format('truetype');
+}
+
+/* --- General Body & Container Styling (Vintage Theme) --- */
+body {
+  background-image: url('./bg/bg2.jpg');
+  /* Assuming a vintage paper/texture background */
+  background-size: cover;
+  background-attachment: fixed;
+  /* Keeps background fixed when scrolling */
+  background-color: #DBE1BC;
+  /* Fallback color */
+  margin: 0;
+  padding: 20px;
+  font-family: 'Special Elite', monospace;
+  /* Typewriter-like font */
+  color: #422d1c;
+  /* Dark brown/sepia text color */
+  line-height: 1.6;
+}
+
+.main-container {
+  background-image: url('./bg/bg3.jpg');
+  /* Another vintage texture for the main content area */
+  background-size: cover;
+  background-color: #D8CBA8;
+  /* Lighter sepia/cream fallback */
+  border: 5px solid #422d1c;
+  /* Dark border, like an old book cover */
+  border-radius: 15px;
+  /* Slightly rounded corners */
+  padding: 30px;
+  max-width: 1200px;
+  /* Max width for larger screens */
+  margin: 30px auto;
+  /* Center the container */
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  /* Subtle shadow for depth */
+}
+
+h1,
+h2 {
+  font-family: 'Adler', cursive;
+  /* Decorative vintage font for headings */
+  text-align: center;
+  color: #2a1e14;
+  /* Even darker brown for headings */
+  margin-top: 0;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 3.5em;
+  /* Larger for main title */
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 2.2em;
+  /* Smaller for section titles */
+  border-bottom: 2px dashed #6b4e39;
+  /* Dashed line like old ledger */
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+}
+
+/* --- Navigation Buttons --- */
+.navigation-buttons {
+  text-align: center;
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.navigation-buttons button,
+button {
+  /* General button styling */
+  font-family: 'Typedeer Mono Demo', monospace;
+  /* Monospace for buttons */
+  font-size: 1.1em;
+  padding: 12px 25px;
+  border: 2px solid #6b4e39;
+  /* Brown border */
+  border-radius: 8px;
+  background-color: #FFFAE2;
+  /* Light cream/yellowish background */
+  color: #422d1c;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navigation-buttons button:hover,
+button:hover {
+  background-color: #e0d8c0;
+  /* Slightly darker on hover */
+  transform: translateY(-2px);
+  /* Slight lift effect */
+}
+
+.navigation-buttons button:active,
+button:active {
+  transform: translateY(0);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Section Styling --- */
+.section {
+  display: none;
+  /* Hidden by default */
+  background-color: #fffdf0c0;
+  /* Slightly transparent white for content areas */
+  border: 2px dashed #6b4e39;
+  /* Dashed border for sections */
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.section.active {
+  display: block;
+  /* Show active section */
+}
+
+/* --- Form Styling --- */
+form {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  /* Label on left, input on right */
+  gap: 15px 25px;
+  /* Row and column gap */
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #a08d7a;
+  /* Lighter border for form */
+  border-radius: 8px;
+  background-color: #fdfbf0;
+  /* Very light background for form */
+}
+
+form label {
+  font-weight: bold;
+  text-align: right;
+  padding-top: 5px;
+  /* Align with input */
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="date"],
+form select {
+  /* ADDED form select here */
+  font-family: 'Special Elite', monospace;
+  font-size: 1.1em;
+  padding: 10px;
+  border: 1px solid #a08d7a;
+  border-radius: 5px;
+  background-color: #FFFAE2;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-appearance: none;
+  /* Remove default browser styling for select */
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23422d1c%22%20d%3D%22M287%2C114.1L146.2%2C254.9L5.4%2C114.1c-7.8-7.8-20.5-7.8-28.3%2C0c-7.8%2C7.8-7.8%2C20.5%2C0%2C28.3l142.3%2C142.3c4%2C4%2C9.2%2C6%2C14.1%2C6s10.1%2C-2%2C14.1%2C-6l142.3%2C-142.3c7.8%2C-7.8%2C7.8%2C-20.5%2C0%2C-28.3C307.5%2C106.3%2C294.8%2C106.3%2C287%2C114.1z%22%2F%3E%3C%2Fsvg%3E');
+  /* Custom dropdown arrow */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  padding-right: 30px;
+  /* Make space for the arrow */
+}
+
+
+form input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(30%) sepia(10%) saturate(1000%) hue-rotate(0deg) brightness(50%) contrast(100%);
+  /* Darken calendar icon */
+}
+
+form button[type="submit"] {
+  grid-column: 1 / -1;
+  /* Span across both columns */
+  margin-top: 20px;
+  font-size: 1.2em;
+  padding: 15px 30px;
+}
+
+/* --- Table Styling --- */
+.table-container {
+  overflow-x: auto;
+  /* Enable horizontal scrolling for narrow screens */
+  margin-top: 20px;
+  border: 1px solid #6b4e39;
+  border-radius: 8px;
+  background-color: #fdfbf0;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* No space between cells */
+  font-family: 'Typedeer Mono Demo', monospace;
+  /* Monospace for table data */
+  font-size: 0.95em;
+}
+
+table th,
+table td {
+  border: 1px solid #a08d7a;
+  /* Lighter grid lines */
+  padding: 12px 15px;
+  text-align: left;
+}
+
+table th {
+  background-color: #e0d8c0;
+  /* Header background */
+  font-weight: bold;
+  color: #2a1e14;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f5f0e0;
+  /* Zebra striping for readability */
+}
+
+table tbody tr:hover {
+  background-color: #e8e0d0;
+  /* Highlight row on hover */
+}
+
+/* --- Messages --- */
+.message {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.message[style*="green"] {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message[style*="red"] {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.message[style*="blue"] {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+/* --- Search Input --- */
+#search-input {
+  width: calc(100% - 20px);
+  /* Full width minus padding */
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  border: 1px solid #a08d7a;
+  border-radius: 5px;
+  background-color: #FFFAE2;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: 'Special Elite', monospace;
+}
+
+/* --- Total Display (for both list and print sections) --- */
+.total-display {
+  /* NEW: Class for total display paragraphs */
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 2px dashed #6b4e39;
+  color: #2a1e14;
+  /* Darker color for emphasis */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .main-container {
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  .navigation-buttons button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+    /* Stack labels and inputs on small screens */
+  }
+
+  form label {
+    text-align: left;
+  }
+
+  table th,
+  table td {
+    padding: 8px 10px;
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .navigation-buttons {
+    flex-direction: column;
+    /* Stack buttons vertically */
+  }
+
+  .navigation-buttons button {
+    width: 90%;
+    /* Make buttons wider */
+  }
+}
